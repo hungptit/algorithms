@@ -7,7 +7,7 @@
 
 class Simple {
   public:
-  bool operator()(const std::string &expression) {
+    bool operator()(const std::string &expression) {
         std::vector<char> stack;
         if (expression.empty()) {
             return true;
@@ -80,7 +80,7 @@ class Simple {
 };
 
 struct UsingVector {
-  bool operator()(const std::string &expression) {
+    bool operator()(const std::string &expression) {
         std::array<char, 3> openBrakets = {{'{', '[', '('}};
         std::array<char, 3> closeBrakets = {{'}', ']', ')'}};
         std::vector<char> stack;
