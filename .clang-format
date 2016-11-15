@@ -4,4 +4,7 @@ IndentWidth: 4
 TabWidth: 4   
 UseTab: Never 
 NamespaceIndentation: All
-ColumnLimit: 96
+ColumnLimit: 108
+AllowShortLoopsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+IndentWrappedFunctionNames: true        
