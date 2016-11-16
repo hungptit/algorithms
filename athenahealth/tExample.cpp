@@ -4,9 +4,6 @@
 #include <unordered_set>
 #include <vector>
 
-#include "boost/filesystem.hpp"
-#include "boost/program_options.hpp"
-
 class NumberOfPaths {
 public:
   NumberOfPaths(const std::string &first, const std::string &second)
@@ -37,29 +34,7 @@ private:
 };
 
 int main() {
-  namespace po = boost::program_options;
-  // po::options_description desc("Allowed options");
-
-  // std::string firstMessage;
-  // std::string secondMessage;
-
-  // // clang-format off
-  // desc.add_options()
-  //   ("help,h", "produce help message")
-  //   ("verbose","Dislay verbose information")
-  //   ("first", po::value<std::string>(&firstMessage), "First message")
-  //   ("second", po::value<std::string>(&secondMessage), "Second message");
-  // // clang-format on
-
-  // po::variables_map vm;
-  // po::store(po::parse_command_line(argc, argv, desc), vm);
-  // po::notify(vm);
-
-  // if (vm.count("help")) {
-  //     std::cout << desc;
-  //     return 0;
-  // }
-
+  
   {
       std::string first("*-*");
       std::string second("*-*");

@@ -1,7 +1,7 @@
 PROJECT(Algorithms)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-set(PROJECTS_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../")
+set(PROJECTS_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../../")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -80,7 +80,7 @@ set(LIB_CELERO "${PROJECTS_FOLDER}/3p/Celero/bin/libcelero.so")
 set(Boost_USE_STATIC_LIBS ON)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-set(Boost_NO_SYSTEM_PATHS TRUE) 
+set(Boost_NO_SYSTEM_PATHS FALSE) 
 if (Boost_NO_SYSTEM_PATHS)
   set(BOOST_ROOT "${PROJECTS_FOLDER}/3p/boost")
   set(BOOST_INCLUDE_DIRS "${BOOST_ROOT}/include")
@@ -89,7 +89,7 @@ endif (Boost_NO_SYSTEM_PATHS)
 
 message("${BOOST_ROOT}")
 
-find_package(Boost 1.60 REQUIRED regex date_time system filesystem thread graph program_options iostreams)
+find_package(Boost 1.58 REQUIRED regex date_time system filesystem thread graph program_options iostreams)
 
 # Include folder
 message(${PROJECTS_FOLDER})
@@ -105,23 +105,12 @@ include_directories ("${PROJECTS_FOLDER}/3p/jemalloc/include")
 include_directories ("${PROJECTS_FOLDER}/3p/tbb/include/")
 include_directories ("${PROJECTS_FOLDER}/3p/Celero/include/")
 
-# Use POCO static library
-include_directories("${PROJECTS_FOLDER}/3p/poco/include")
-set(LIB_POCO_FOUNDATION "${PROJECTS_FOLDER}/3p/poco/lib/libPocoFoundation.a")
-
 if (Boost_FOUND)
   include_directories(${BOOST_INCLUDE_DIRS})
-  set(UNITTEST_SRC_FILES tBalancedBrackets tUniqueCharacters tWildcardMatching tAnagram tReverseString tRemoveDuplicatedCharacters tRotateImage tSum tTowerOfHanoi tStockProfit tMinNumCoins)
+  set(UNITTEST_SRC_FILES tTemplate tExample)
   foreach (src_file ${UNITTEST_SRC_FILES})
     ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
-    TARGET_LINK_LIBRARIES(${src_file} ${Boost_LIBRARIES}  ${LIB_GTEST} ${LIB_GTEST_MAIN} ${LIB_CELERO} -lpthread)
+    TARGET_LINK_LIBRARIES(${src_file} ${Boost_LIBRARIES} -lpthread)
     ADD_TEST(${src_file} ./${src_file})
   endforeach (src_file)
-
-    include_directories(${BOOST_INCLUDE_DIRS})
-    set(UNITTEST_SRC_FILES pUniqueCharacters)
-  foreach (src_file ${UNITTEST_SRC_FILES})
-    ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
-    TARGET_LINK_LIBRARIES(${src_file} ${LIB_CELERO} -lpthread)
-  endforeach (src_file) 
 endif (Boost_FOUND)

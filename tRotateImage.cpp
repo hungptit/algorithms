@@ -61,7 +61,6 @@ namespace algorithms {
 TEST(BasicTests, Positive) {
     using namespace algorithms;
     std::vector<int> data = {1, 4, 7, 2, 5, 8, 3, 6, 9};
-
     std::vector<int> expectedResults = {7, 8, 9, 4, 5, 6, 1, 2, 3};
 
     print_matrix(data, 3);
