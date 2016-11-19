@@ -107,7 +107,7 @@ include_directories ("${PROJECTS_FOLDER}/3p/Celero/include/")
 
 if (Boost_FOUND)
   include_directories(${BOOST_INCLUDE_DIRS})
-  set(UNITTEST_SRC_FILES tTemplate tExample)
+  set(UNITTEST_SRC_FILES tTemplate tExample tRemoveNodes tClock)
   foreach (src_file ${UNITTEST_SRC_FILES})
     ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
     TARGET_LINK_LIBRARIES(${src_file} ${Boost_LIBRARIES} -lpthread)

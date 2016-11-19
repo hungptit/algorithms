@@ -46,7 +46,7 @@ int main() {
     {
         Bucket buckets{2, 1, 2, 2};
         CountAllPermutations alg;
-        std::cout << "Number of valid solutions: " << alg.count(buckets, 0) << "\n;
+        std::cout << "Number of valid solutions: " << alg.count(buckets, 0) << "\n";
     }
 
     return 0;
