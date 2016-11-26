@@ -112,15 +112,17 @@ set(LIB_POCO_FOUNDATION "${PROJECTS_FOLDER}/3p/poco/lib/libPocoFoundation.a")
 
 if (Boost_FOUND)
   include_directories(${BOOST_INCLUDE_DIRS})
+
   set(UNITTEST_SRC_FILES tBalancedBrackets tUniqueCharacters tWildcardMatching tAnagram tReverseString tRemoveDuplicatedCharacters tRotateImage tSum tTowerOfHanoi tStockProfit tMinNumCoins tDecompressString tPermutation prob_7_14 tpriorioty_queue tree_height)
+
   foreach (src_file ${UNITTEST_SRC_FILES})
     ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
     TARGET_LINK_LIBRARIES(${src_file} ${Boost_LIBRARIES}  ${LIB_GTEST} ${LIB_GTEST_MAIN} ${LIB_CELERO} -lpthread)
     ADD_TEST(${src_file} ./${src_file})
   endforeach (src_file)
 
-    include_directories(${BOOST_INCLUDE_DIRS})
-    set(UNITTEST_SRC_FILES pUniqueCharacters)
+  include_directories(${BOOST_INCLUDE_DIRS})
+  set(UNITTEST_SRC_FILES pUniqueCharacters)
   foreach (src_file ${UNITTEST_SRC_FILES})
     ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
     TARGET_LINK_LIBRARIES(${src_file} ${LIB_CELERO} -lpthread)
