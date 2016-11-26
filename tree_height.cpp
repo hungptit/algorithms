@@ -1,3 +1,5 @@
+// TODO: Benchmark two approachs to see which approach is better in term of performance.
+
 #include "graph/DataStructures.hpp"
 #include <iostream>
 #include <string>
