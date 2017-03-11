@@ -1,7 +1,8 @@
 PROJECT(Algorithms)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-set(PROJECTS_FOLDER "${CMAKE_CURRENT_SOURCE_DIR}/../")
+set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+message(${ROOT_DIR})
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
@@ -54,61 +55,35 @@ endif()
 add_cxx_compiler_flag(-DFMT_HEADER_ONLY)
 add_cxx_compiler_flag(-DCEREAL_RAPIDJSON_HAS_CXX11_RVALUE_REFS)
 
-set(CMAKE_CXX_COMPILER "${PROJECTS_FOLDER}3p/llvm/bin/clang++")
+set(CMAKE_CXX_COMPILER "clang++")
 
 ENABLE_TESTING()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Used libraries
-set(LIB_GTEST "${PROJECTS_FOLDER}/3p/gtest/lib/libgtest.a")
-set(LIB_GTEST_MAIN "${PROJECTS_FOLDER}/3p/gtest/lib/libgtest_main.a")
-set(LIB_LEVELDB "${PROJECTS_FOLDER}/3p/leveldb/out-static/libleveldb.a")
+set(LIB_GTEST "${ROOT_DIR}/lib/libgtest.a")
+set(LIB_GTEST_MAIN "${ROOT_DIR}/lib/libgtest_main.a")
 
 # Libraries used by rocksdb
-set(LIB_ROCKSDB "${PROJECTS_FOLDER}/3p/rocksdb/librocksdb.a")
-set(LIB_ZLIB "${PROJECTS_FOLDER}/3p/zlib/lib/libz.a")
-set(LIB_LZ4 "${PROJECTS_FOLDER}/3p/lz4/lib/liblz4.a")
-set(LIB_BZ2 "${PROJECTS_FOLDER}/3p/bzip2/lib/libbz2.a")
-set(LIB_SNAPPY "${PROJECTS_FOLDER}/3p/snappy/lib/libsnappy.a")
-set(LIB_JEMALLOC "${PROJECTS_FOLDER}/3p/jemalloc/lib/libjemalloc.a")
-set(LIB_TBB "${PROJECTS_FOLDER}/3p/tbb/lib/libtbb.so")
-set(LIB_TBB_MALLOC "${PROJECTS_FOLDER}/3p/tbb/lib/libtbb.so")
-set(LIB_CELERO "${PROJECTS_FOLDER}/3p/Celero/bin/libcelero.so")
+set(LIB_TBB_MALLOC "${ROOT_DIR}/lib/libtbb.so")
+set(LIB_CELERO "${ROOT_DIR}/bin/libcelero.so")
 
 # This option make sure that we use the local boost version. Note that if the 
 # system boost is installed then CMake might use that boost version.
-set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
-set(Boost_NO_SYSTEM_PATHS TRUE) 
-if (Boost_NO_SYSTEM_PATHS)
-  set(BOOST_ROOT "${PROJECTS_FOLDER}/3p/boost")
-  set(BOOST_INCLUDE_DIRS "${BOOST_ROOT}/include")
-  set(BOOST_LIBRARY_DIRS "${BOOST_ROOT}/lib")
-endif (Boost_NO_SYSTEM_PATHS)
-
 message("${BOOST_ROOT}")
 
 find_package(Boost 1.60 REQUIRED regex date_time system filesystem thread graph program_options iostreams)
 
 # Include folder
-message(${PROJECTS_FOLDER})
-include_directories (${PROJECTS_FOLDER})
-include_directories ("${PROJECTS_FOLDER}/3p/gtest/include")
-include_directories ("${PROJECTS_FOLDER}/3p/fmt/include")
-include_directories ("${PROJECTS_FOLDER}/3p/rocksdb/include")
-include_directories ("${PROJECTS_FOLDER}/3p/zlib/include")
-include_directories ("${PROJECTS_FOLDER}/3p/lz4/include")
-include_directories ("${PROJECTS_FOLDER}/3p/bzip2/include")
-include_directories ("${PROJECTS_FOLDER}/3p/jemalloc/include")
-
-include_directories ("${PROJECTS_FOLDER}/3p/tbb/include/")
-include_directories ("${PROJECTS_FOLDER}/3p/Celero/include/")
-include_directories ("cereal/include")
+include_directories ("${ROOT_DIR}/include")
+include_directories ("${ROOT_DIR}/sbutils")
 
 # Use POCO static library
-include_directories("${PROJECTS_FOLDER}/3p/poco/include")
-set(LIB_POCO_FOUNDATION "${PROJECTS_FOLDER}/3p/poco/lib/libPocoFoundation.a")
+include_directories("${ROOT_DIR}/include")
+set(LIB_POCO_FOUNDATION "${ROOT_DIR}/lib/libPocoFoundation.a")
 
 if (Boost_FOUND)
   include_directories(${BOOST_INCLUDE_DIRS})
