@@ -82,5 +82,4 @@ Given a string "L*&EVe)))l", write a method which will determine if the input is
 
 * Graph
 Imagine a room full of people, with only 1 celebrity in the room. Celebrity is defined as a person who does not know anyone, but everyone knows him/her. Write a method who will take array of people and a person as input and return boolean if the person is a celebrity or not.
-
 Solution : https://www.geeksforgeeks.org/move-zeroes-end-array/
