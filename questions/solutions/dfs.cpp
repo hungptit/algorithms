@@ -18,10 +18,10 @@ int main() {
         dfs.pre_order({vid});
     }
 
-    // // Visit several nodes at the same time.
-    // {
-    //     dfs.reset_states();
-    //     fmt::print("---- dfs(1, 5) ----\n");
-    //     dfs.pre_order({1, 5});
-    // }
+    // Visit several nodes at the same time.
+    {
+        dfs.reset_states();
+        fmt::print("---- dfs(1, 5) ----\n");
+        dfs.pre_order({1, 5});
+    }
 }

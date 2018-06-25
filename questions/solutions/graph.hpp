@@ -77,7 +77,13 @@ namespace graph {
             }
 
             void print() const {
-                graph::experiments::print_nodes<node_type>(vertexes, "Vertexes:");
+                // Print vertex information
+                fmt::print("Vertexes:");
+                for (size_t vid = 0; vid < vertexes.size(); ++vid) {
+                    auto &v = vertexes[vid];
+                    fmt::print(" ({0},{1})", v.name, v.value);
+                }
+                fmt::print("\n");
                 for (size_t vid = 0; vid < data.size(); ++vid) {
                     fmt::print("{}: ", vid);
                     fmt::print("[ ");
@@ -127,10 +133,13 @@ namespace graph {
             std::vector<index_type> states;
         };
 
+        // A simple implementation of a pre-order DFS traversal.
         template <typename Policy> struct DFS : public Policy {
             using index_type = typename Policy::index_type;
             using graph_type = typename Policy::graph_type;
-            explicit DFS(graph_type &g) : Policy(g) {}
+
+            template <typename gtype, typename ...Args>
+            explicit DFS(gtype &&g, Args... args) : Policy(std::forward<gtype>(g), args...) {}
 
             // Perform DFS traversal from given vertex.
             void pre_order(const std::vector<index_type> &vids) {
@@ -148,6 +157,8 @@ namespace graph {
                 }
             }
         };
+
+        // A simple implementation of a pre-order BFS traversal.
         template <typename Policy> struct BFS : public Policy {
             using index_type = typename Policy::index_type;
             using graph_type = typename Policy::graph_type;
@@ -170,5 +181,4 @@ namespace graph {
             }
         };
     } // namespace algorithms
-
 } // namespace graph
