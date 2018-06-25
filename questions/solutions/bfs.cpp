@@ -15,13 +15,13 @@ int main() {
         bfs.reset_states();
         const graph_type::index_type vid = 2;
         fmt::print("---- bfs({}) ----\n", vid);
-        bfs.pre_order({vid});
+        bfs.traverse({vid});
     }
 
     // Visit several nodes at the same time.
     {
         bfs.reset_states();
         fmt::print("---- bfs(1, 5) ----\n");
-        bfs.pre_order({1, 5});
+        bfs.traverse({1, 5});
     }
 }

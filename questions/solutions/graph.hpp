@@ -141,8 +141,8 @@ namespace graph {
             template <typename gtype, typename ...Args>
             explicit DFS(gtype &&g, Args... args) : Policy(std::forward<gtype>(g), args...) {}
 
-            // Perform DFS traversal from given vertex.
-            void pre_order(const std::vector<index_type> &vids) {
+            // Perform non-recursive DFS traversal from given vertexes.
+            void traverse(const std::vector<index_type> &vids) {
                 std::vector<index_type> stack(vids.cbegin(), vids.cend());
                 while (!stack.empty()) {
                     auto vid = stack.back();
@@ -164,17 +164,17 @@ namespace graph {
             using graph_type = typename Policy::graph_type;
             explicit BFS(graph_type &g) : Policy(g) {}
 
-            // Perform DFS traversal from given vertex.
-            void pre_order(const std::vector<index_type> &vids) {
-                std::deque<index_type> stack(vids.cbegin(), vids.cend());
-                while (!stack.empty()) {
-                    auto vid = stack.front();
-                    stack.pop_front();
+            // Perform non-recursive DFS traversal from given vertexes.
+            void traverse(const std::vector<index_type> &vids) {
+                std::deque<index_type> queue(vids.cbegin(), vids.cend());
+                while (!queue.empty()) {
+                    auto vid = queue.front();
+                    queue.pop_front();
                     Policy::visit(vid);
                     auto range = Policy::graph.edges(vid);
                     for (auto iter = range.begin; iter != range.end; ++iter) {
                         if (Policy::states[*iter] == NONE) {
-                            stack.push_back(*iter);
+                            queue.push_back(*iter);
                         }
                     }
                 }
