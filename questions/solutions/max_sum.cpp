@@ -3,6 +3,7 @@
 #include <vector>
 
 namespace {
+    // Complexity: O(n) 
     int max_sum(const std::vector<int> &data) {
         assert(!data.empty()); // Assume data is not empty.
         auto begin = data.begin();

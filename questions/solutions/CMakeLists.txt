@@ -10,8 +10,8 @@ include(CheckCXXCompilerFlag)
 include(AddCXXCompilerFlag)
 include(CXXFeatureCheck)
 
-# set(CMAKE_BUILD_TYPE Debug)
-set (CMAKE_BUILD_TYPE Release)
+set(CMAKE_BUILD_TYPE Debug)
+# set (CMAKE_BUILD_TYPE Release)
 add_cxx_compiler_flag(-O3)
 add_cxx_compiler_flag(-march=native)
 
@@ -42,7 +42,7 @@ include_directories ("${EXTERNAL_DIR}/include")
 # Include utils headers
 include_directories ("${ROOT_DIR}/src")
 
-set(COMMAND_SRC_FILES max_sum)
+set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs)
 foreach (src_file ${COMMAND_SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})

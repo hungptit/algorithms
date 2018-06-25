@@ -32,6 +32,7 @@ namespace {
         std::cout << "\n";
     }
 
+    // The complexity of this algorithm is O(n^2)
     struct CircusTower {
         void search(const container_type &data) {
             size_t N = data.size();

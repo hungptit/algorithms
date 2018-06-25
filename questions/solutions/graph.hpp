@@ -1,6 +1,7 @@
 #pragma once
 
 #include "fmt/format.h"
+#include <deque>
 #include <string>
 #include <vector>
 
@@ -88,10 +89,8 @@ namespace graph {
                 }
             }
 
-            size_t get_number_of_vertexes() const {
-                return vertexes.size();
-            }
-            
+            size_t get_number_of_vertexes() const { return vertexes.size(); }
+
             typename container_type::const_iterator begin(const index_type vid) const {
                 return data[vid].cbegin();
             }
@@ -106,4 +105,70 @@ namespace graph {
             }
         };
     } // namespace experiments
+
+    namespace algorithms {
+        enum Status : uint8_t { NONE, VISITED, PROCESSED };
+
+        template <typename Graph> struct BasicPolicy {
+            using graph_type = Graph;
+            using index_type = typename graph_type::index_type;
+            explicit BasicPolicy(Graph &g) : graph(g), states(g.get_number_of_vertexes(), NONE) {}
+            void reset_states() {
+                states.assign(states.size(), NONE); // Reset node status
+            }
+
+            void visit(const index_type vid) {
+                if (states[vid] == NONE) {
+                    states[vid] = VISITED;
+                    fmt::print("visit: {}\n", vid);
+                }
+            }
+            graph_type graph;
+            std::vector<index_type> states;
+        };
+
+        template <typename Policy> struct DFS : public Policy {
+            using index_type = typename Policy::index_type;
+            using graph_type = typename Policy::graph_type;
+            explicit DFS(graph_type &g) : Policy(g) {}
+
+            // Perform DFS traversal from given vertex.
+            void pre_order(const std::vector<index_type> &vids) {
+                std::vector<index_type> stack(vids.cbegin(), vids.cend());
+                while (!stack.empty()) {
+                    auto vid = stack.back();
+                    stack.pop_back();
+                    Policy::visit(vid);
+                    auto range = Policy::graph.edges(vid);
+                    for (auto iter = range.begin; iter != range.end; ++iter) {
+                        if (Policy::states[*iter] == NONE) {
+                            stack.push_back(*iter);
+                        }
+                    }
+                }
+            }
+        };
+        template <typename Policy> struct BFS : public Policy {
+            using index_type = typename Policy::index_type;
+            using graph_type = typename Policy::graph_type;
+            explicit BFS(graph_type &g) : Policy(g) {}
+
+            // Perform DFS traversal from given vertex.
+            void pre_order(const std::vector<index_type> &vids) {
+                std::deque<index_type> stack(vids.cbegin(), vids.cend());
+                while (!stack.empty()) {
+                    auto vid = stack.front();
+                    stack.pop_front();
+                    Policy::visit(vid);
+                    auto range = Policy::graph.edges(vid);
+                    for (auto iter = range.begin; iter != range.end; ++iter) {
+                        if (Policy::states[*iter] == NONE) {
+                            stack.push_back(*iter);
+                        }
+                    }
+                }
+            }
+        };
+    } // namespace algorithms
+
 } // namespace graph
