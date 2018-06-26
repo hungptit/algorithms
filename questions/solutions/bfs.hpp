@@ -1,5 +1,9 @@
 #pragma once
 
+#include "traversal_policies.hpp"
+#include <vector>
+#include <deque>
+
 namespace graph {
     namespace algorithms {
         // A simple implementation of the BFS algorithm.

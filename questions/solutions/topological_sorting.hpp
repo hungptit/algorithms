@@ -1,4 +1,6 @@
 #pragma once
+#include "traversal_policies.hpp"
+#include <algorithm>
 #include <vector>
 
 namespace graph {
@@ -69,12 +71,13 @@ namespace graph {
                         }
                     }
                 }
+
+                std::reverse(sorted_list.begin(), sorted_list.end());
                 return true;
             }
 
             // Keep a found sorted list.
             std::vector<index_type> sorted_list;
         };
-
     } // namespace algorithms
 } // namespace graph

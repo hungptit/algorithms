@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-
+#include "traversal_policies.hpp"
 namespace graph {
     namespace algorithms {
         // A simple implementation of the DFS algorithm.

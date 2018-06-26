@@ -1,6 +1,7 @@
+#include "bfs.hpp"
 #include "data.hpp"
 #include "graph.hpp"
-#include "bfs.hpp"
+#include "traversal_policies.hpp"
 #include <string>
 #include <vector>
 

@@ -13,7 +13,7 @@ namespace graph {
     bool detect_loop(Graph & g) {
         g.print();
         using graph_type = Graph;
-        using Policy = graph::algorithms::BasicPolicy<graph_type>;
+        using Policy = graph::algorithms::MinimumPolicy<graph_type>;
         graph::algorithms::LoopDetector<Policy> dfs(g);
         return dfs.traverse();
     }

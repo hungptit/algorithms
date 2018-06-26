@@ -1,5 +1,6 @@
 #include "data.hpp"
 #include "graph.hpp"
+#include "traversal_policies.hpp"
 #include <string>
 #include <vector>
 
