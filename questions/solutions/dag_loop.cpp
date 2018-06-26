@@ -1,6 +1,6 @@
 #include "data.hpp"
 #include "graph.hpp"
-#include "dag_loop.hpp"
+#include "detect_cycle.hpp"
 #include <string>
 #include <vector>
 

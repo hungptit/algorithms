@@ -1,5 +1,6 @@
 #include "data.hpp"
 #include "graph.hpp"
+#include "bfs.hpp"
 #include <string>
 #include <vector>
 
