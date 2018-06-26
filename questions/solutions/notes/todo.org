@@ -1,0 +1,7 @@
+* Code shortest path algorithms
+* Find strongly connected components.
+* Have a routine that can create a graphical representation of a graph.
+* Code binary tree problems
+** Print out binary tree
+** Print out binary tree nicely.
+** 
