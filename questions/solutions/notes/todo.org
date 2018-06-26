@@ -1,7 +1,21 @@
-* Code shortest path algorithms
-* Find strongly connected components.
-* Have a routine that can create a graphical representation of a graph.
-* Code binary tree problems
-** Print out binary tree
-** Print out binary tree nicely.
-** 
+* Constraints
+  + Code is written in modern C++.
+  + Shared code will be moved to the library with the right namespace so we can use it for other purposes.
+  + Important functionality need benchmark to proof that we has a reasonable runtime performance.
+  + 
+* TODO Code shortest path algorithms
+* TODO Find strongly connected components.
+* TODO Have a routine that can create a graphical representation of a graph.
+* TODO Code binary tree problems
+** TODO Print out binary tree
+** TODO Print out binary tree nicely.
+* TODO Sort algorithms
+** TODO Merge sort
+** TODO Quick sort
+** TODO Find one missing number from 1-N
+** TODO Find two missing number from 1-N
+* Dynamic programming
+** Coin problem
+** Count all permutations.
+** Rod cutting problem
+

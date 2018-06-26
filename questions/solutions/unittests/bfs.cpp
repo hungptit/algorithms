@@ -6,7 +6,7 @@
 #include <vector>
 
 int main() {
-    auto g = experiments::directed_graph();
+    auto g = graph::test::directed_graph();
     g.print();
     using graph_type = decltype(g);
     using Policy = graph::algorithms::BasicPolicy<graph_type>;

@@ -22,10 +22,10 @@ namespace graph {
 
 int main() {
     // Has loop
-    auto g1 = experiments::directed_graph_with_loop();
+    auto g1 = graph::test::directed_graph_with_loop();
     fmt::print("The given graph {}\n", (graph::detect_loop<decltype(g1)>(g1) ? "has a cycle." : "is DAG."));
 
     // Does not have loop
-    auto g2 = experiments::directed_graph();
+    auto g2 = graph::test::directed_graph();
     fmt::print("The given graph {}\n", graph::detect_loop(g2) ? "has loop." : "is DAG.");
 }

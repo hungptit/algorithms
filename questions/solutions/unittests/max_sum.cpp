@@ -45,7 +45,7 @@ namespace {
 int main() {
     auto find_max_sum = [](std::vector<int> &&data) {
         std::cout << "max_sum(";
-        print(data.cbegin(), data.cend());
+        utils::print(data.cbegin(), data.cend());
         std::cout << ") = " << max_sum(data) << "\n";
     };
 

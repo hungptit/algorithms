@@ -1,7 +1,7 @@
 PROJECT(TOOLS)
 CMAKE_MINIMUM_REQUIRED(VERSION 3.0)
 
-set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../")
+set(ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../")
 set(EXTERNAL_DIR "${ROOT_DIR}../3p")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
@@ -10,11 +10,10 @@ include(CheckCXXCompilerFlag)
 include(AddCXXCompilerFlag)
 include(CXXFeatureCheck)
 
-set(CMAKE_BUILD_TYPE Debug)
-# set (CMAKE_BUILD_TYPE Release)
+# set(CMAKE_BUILD_TYPE Debug)
+set (CMAKE_BUILD_TYPE Release)
 add_cxx_compiler_flag(-O3)
 add_cxx_compiler_flag(-march=native)
-
 add_cxx_compiler_flag(-std=c++14)
 add_cxx_compiler_flag(-Wall)
 add_cxx_compiler_flag(-flto)
@@ -40,9 +39,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 include_directories ("${EXTERNAL_DIR}/include")
 
 # Include utils headers
-include_directories ("${ROOT_DIR}/src")
+include_directories ("../src")
 
-set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop sorted_list)
+set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop sorted_list data_structures)
 foreach (src_file ${COMMAND_SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})

@@ -34,7 +34,7 @@ namespace {
 } // namespace
 
 int main() {
-    auto g = experiments::directed_graph();
+    auto g = graph::test::directed_graph();
     g.print();
     using graph_type = decltype(g);
     using index_type = typename graph_type::index_type;
