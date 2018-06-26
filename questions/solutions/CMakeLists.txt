@@ -42,7 +42,7 @@ include_directories ("${EXTERNAL_DIR}/include")
 # Include utils headers
 include_directories ("${ROOT_DIR}/src")
 
-set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop)
+set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop sorted_list)
 foreach (src_file ${COMMAND_SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})

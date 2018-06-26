@@ -1,6 +1,6 @@
 #include "data.hpp"
 #include "graph.hpp"
-#include "detect_cycle.hpp"
+#include "topological_sorting.hpp"
 #include <string>
 #include <vector>
 
