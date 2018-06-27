@@ -1,7 +1,0 @@
-#+TITLE: Frequently asked interview questions
-#+AUTHOR: Hung Dang
-#+STARTUP: showall
-* [[https://www.programcreek.com/2012/11/top-10-algorithms-for-coding-interview/][programmingcreek.com]]
-* [[https://leetcode.com/problemset/all/][Leetcode problem]]
-* [[https://towardsdatascience.com/top-algorithms-and-data-structures-you-really-need-to-know-ab9a2a91c7b5][Top-algorithms-and-data-structures-you-really-need-to-know]]
-* 
