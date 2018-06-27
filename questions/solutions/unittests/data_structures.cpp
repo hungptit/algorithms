@@ -12,11 +12,11 @@
 #include "catch/catch.hpp"
 
 TEST_CASE("BasicNode") {
-    using Node = graph::BasicNode;
-    Node n1{"Hello"};
-    Node n2{"Hello"};
-    Node n3{"Hello world"};
-    Node n4{"Hole"};
+    using Node = graph::BasicNode<int>;
+    Node n1{1};
+    Node n2{1};
+    Node n3{2};
+    Node n4{3};
 
     CHECK(n1 == n2);
     CHECK(n1 != n3);
@@ -40,12 +40,11 @@ TEST_CASE("BasicNode") {
 }
 
 TEST_CASE("WeightedNode") {
-    using T = int;
-    using Node = graph::WeightedNode<T>;
-    Node n1{"Hello", 1};
-    Node n2{"Hello", 1};
-    Node n3{"Hello", 2};
-    Node n4{"Hole", 3};
+    using Node = graph::WeightedNode<int, int>;
+    Node n1{1, 1};
+    Node n2{1, 1};
+    Node n3{2, 2};
+    Node n4{3, 3};
 
     CHECK(n1 == n2);
     CHECK(n1 != n3);

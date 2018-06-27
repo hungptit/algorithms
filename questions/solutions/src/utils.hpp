@@ -6,14 +6,15 @@
 #include <iostream>
 
 namespace graph {
-    std::ostream &operator<<(std::ostream &os, const BasicNode &val) {
-        os << "(\"" << val.name << "\")";
+    template<typename T>
+    std::ostream &operator<<(std::ostream &os, const BasicNode<T> &val) {
+        os << "(\"" << val.id << "\")";
         return os;
     }
 
-    template <typename T>
-    std::ostream &operator<<(std::ostream &os, const WeightedNode<T> &val) {
-        os << "(\"" << val.name << "\"," << val.value << "\")";
+    template <typename T1, typename T2>
+    std::ostream &operator<<(std::ostream &os, const WeightedNode<T1, T2> &val) {
+        os << "(\"" << val.id << "\"," << val.value << "\")";
         return os;
     }
 
