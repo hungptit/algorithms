@@ -28,6 +28,8 @@ namespace graph {
         os << "(\"" << val.source << "\"," << val.destination << "," << val.weight << "\")";
         return os;
     }
+
+    
 } // namespace graph
 
 namespace utils {
@@ -43,4 +45,13 @@ namespace utils {
         }
         std::cout << "]";
     }
-}
+
+    template <typename T, typename OArchive> std::string save(const T &data) {
+        std::stringstream os;
+        {
+            OArchive oar(os);
+            oar(data);
+        }
+        return os.str();
+    }
+} // namespace utils

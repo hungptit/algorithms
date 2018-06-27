@@ -13,7 +13,7 @@ namespace graph {
             explicit DFS(gtype &&g, Args... args) : Policy(std::forward<gtype>(g), args...) {}
 
             // Perform non-recursive DFS traversal from given vertices.
-            void traverse(const std::vector<index_type> &vids) {
+            auto traverse(const std::vector<index_type> &vids) {
                 std::vector<index_type> stack(vids.cbegin(), vids.cend());
                 while (!stack.empty()) {
                     auto vid = stack.back();
@@ -26,6 +26,7 @@ namespace graph {
                         }
                     }
                 }
+                return Policy::results;
             }
         };
     } // namespace algorithms

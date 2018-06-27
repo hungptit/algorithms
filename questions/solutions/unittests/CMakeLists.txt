@@ -41,7 +41,7 @@ include_directories ("${EXTERNAL_DIR}/include")
 # Include utils headers
 include_directories ("../src")
 
-set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop sorted_list data_structures)
+set(COMMAND_SRC_FILES max_sum 4_1 dfs bfs dag_loop sorted_list data_structures graph)
 foreach (src_file ${COMMAND_SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})

@@ -34,12 +34,12 @@ namespace {
 } // namespace
 
 int main() {
-    auto g = graph::test::directed_graph();
+    auto g = graph::test::minimum::directed_graph();
     g.print();
     using graph_type = decltype(g);
     using index_type = typename graph_type::index_type;
     // Modify BFS so we can terminate early after a path is found.
-    using Policy = graph::algorithms::BasicPolicy<graph_type>;
+    using Policy = graph::algorithms::minimum::BasicPolicy<graph_type>;
     BFS<Policy> dfs(g);
 
     auto find = [&dfs](index_type v1, index_type v2) {

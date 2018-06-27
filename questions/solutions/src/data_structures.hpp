@@ -51,6 +51,36 @@ namespace graph {
         return std::tie(lhs.name, lhs.value) < std::tie(rhs.name, rhs.value);
     }
 
+    // Minimum edge which only has destination information. 
+    template <typename T> struct MinimumEdge {
+        using index_type = T;
+        index_type destination;
+        template <typename Archive> void serialize(Archive &ar) {
+            ar(CEREAL_NVP(destination));
+        }
+    };
+
+    template <typename index_type>
+    bool operator==(const MinimumEdge<index_type> &lhs, const MinimumEdge<index_type> &rhs) {
+        return lhs.destination == rhs.destination;
+    }
+
+    template <typename index_type>
+    bool operator!=(const MinimumEdge<index_type> &lhs, const MinimumEdge<index_type> &rhs) {
+        return lhs.destination != rhs.destination;
+    }
+
+    template <typename index_type>
+    bool operator>(const MinimumEdge<index_type> &lhs, const MinimumEdge<index_type> &rhs) {
+        return lhs.destination > rhs.destination;
+    }
+
+    template <typename index_type>
+    bool operator<(const MinimumEdge<index_type> &lhs, const MinimumEdge<index_type> &rhs) {
+        return lhs.destination < rhs.destination;
+    }
+
+
     // BasicEdge
     template <typename T> struct BasicEdge {
         using index_type = T;

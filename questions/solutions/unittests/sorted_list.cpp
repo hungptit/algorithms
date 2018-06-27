@@ -12,7 +12,7 @@ namespace {
     template <typename Algorithm>
     void sorted_list(typename Algorithm::graph_type &g, bool is_dag,
                      std::deque<typename Algorithm::index_type> &&sorted_list) {
-        g.print();
+        // std::cout << utils::save<decltype(g), cereal::JSONOutputArchive>(g);
         Algorithm dfs(g);
         bool isok = dfs.traverse();
         CHECK(isok == is_dag);
@@ -30,37 +30,36 @@ namespace {
 } // namespace
 
 TEST_CASE("Non-recusrive implementation - graph has loop") {
-    auto g = graph::test::directed_graph_with_loop();
-    sorted_list<
-        graph::algorithms::TopologicalSort<typename graph::algorithms::MinimumPolicy<decltype(g)>>>(
+    auto g = graph::test::minimum::directed_graph_with_loop();
+    sorted_list<graph::algorithms::minimum::TopologicalSort<
+        typename graph::algorithms::minimum::MinimumPolicy<decltype(g)>>>(
         g, false, {7, 6, 5, 11, 4, 3, 10, 8, 9, 2, 1, 0});
 }
 
 TEST_CASE("Non-recusrive implementation - g1", "") {
-    auto g = graph::test::directed_graph();
-    sorted_list<
-        graph::algorithms::TopologicalSort<typename graph::algorithms::MinimumPolicy<decltype(g)>>>(
-            g, true, {10, 1, 2, 4, 5, 6, 7, 9, 8, 0, 3});
+    auto g = graph::test::minimum::directed_graph();
+    sorted_list<graph::algorithms::minimum::TopologicalSort<
+        typename graph::algorithms::minimum::MinimumPolicy<decltype(g)>>>(
+            g, true, {1, 2, 4, 5, 6, 7, 9, 8, 0, 3});
 }
 
 TEST_CASE("Non-recusrive implementation - g2", "") {
-    auto g = graph::test::directed_graph2();
-    sorted_list<
-        graph::algorithms::TopologicalSortRecursive<typename graph::algorithms::MinimumPolicy<decltype(g)>>>(
+    auto g = graph::test::minimum::directed_graph2();
+    sorted_list<graph::algorithms::minimum::TopologicalSortRecursive<
+        typename graph::algorithms::minimum::MinimumPolicy<decltype(g)>>>(
         g, true, {7, 6, 5, 11, 4, 3, 10, 8, 9, 2, 1, 0});
 }
 
 TEST_CASE("Recusrive implementation - g1", "") {
-    auto g = graph::test::directed_graph();
-    sorted_list<
-        graph::algorithms::TopologicalSortRecursive<typename graph::algorithms::MinimumPolicy<decltype(g)>>>(
-            g, true, {10, 1, 4, 2, 5, 6, 9, 7, 8, 0, 3});
+    auto g = graph::test::minimum::directed_graph();
+    sorted_list<graph::algorithms::minimum::TopologicalSortRecursive<
+        typename graph::algorithms::minimum::MinimumPolicy<decltype(g)>>>(
+            g, true, {1, 4, 2, 5, 6, 9, 7, 8, 0, 3});
 }
 
 TEST_CASE("Recusrive implementation - g2", "") {
-    auto g = graph::test::directed_graph2();
-    sorted_list<
-        graph::algorithms::TopologicalSortRecursive<typename graph::algorithms::MinimumPolicy<decltype(g)>>>(
-            g, true, {7, 6, 5, 11, 4, 3, 10, 8, 9, 2, 1, 0});
+    auto g = graph::test::minimum::directed_graph2();
+    sorted_list<graph::algorithms::minimum::TopologicalSortRecursive<
+        typename graph::algorithms::minimum::MinimumPolicy<decltype(g)>>>(
+        g, true, {7, 6, 5, 11, 4, 3, 10, 8, 9, 2, 1, 0});
 }
-
