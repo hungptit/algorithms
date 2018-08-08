@@ -1,8 +1,12 @@
 # Introdution #
 
-This repository contains implementations for many popular algorithms using modern C++. Some commonly used algorithms are moved to src folder so I can reuse them in other projects.
+This repository contains implementations for many popular algorithms using modern C++.
 
 # FAQs #
+
+## How can I use core algorithms in my project? ##
+
+All core algorithms are in header files in **src** folder. We can reuse them in any project by including the header files.
 
 ## What is the coding style ##
 

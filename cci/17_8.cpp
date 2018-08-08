@@ -1,8 +1,9 @@
 #include <iostream>
 #include <tuple>
 #include <vector>
+#include <algorithm>
 
-namespace {
+namespace cci {
     struct Person {
         int weight;
         int height;
@@ -59,15 +60,15 @@ namespace {
 
 } // namespace
 int main() {
-    CircusTower tower;
+    cci::CircusTower tower;
     {
-        container_type data1{{65, 100}, {70, 150}, {56, 90}, {75, 190}, {60, 95}, {68, 100}};
+        cci::container_type data1{{65, 100}, {70, 150}, {56, 90}, {75, 190}, {60, 95}, {68, 100}};
         std::sort(data1.begin(), data1.end());
         tower.search(data1);
     }
-    
+
     {
-        container_type data1{{65, 160}, {70, 150}, {66, 90}};
+        cci::container_type data1{{65, 160}, {70, 150}, {66, 90}};
         std::sort(data1.begin(), data1.end());
         tower.search(data1);
     }

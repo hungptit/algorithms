@@ -22,7 +22,7 @@ namespace cci {
     // runtime complexity.
 
     // We can also sort two string then compare this approach does not
-    // require memory, however, the run-time complexity is O(nlog(n))
+    // require memory, however, the run-time complexity is O(nlog())
 
     void test(const std::string &s1, const std::string &s2) {
         std::cout << "\"" << s1 << "\""
