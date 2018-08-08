@@ -22,10 +22,10 @@ include(CheckCXXCompilerFlag)
 include(AddCXXCompilerFlag)
 include(CXXFeatureCheck)
 
-# set(CMAKE_BUILD_TYPE Debug)
+set(CMAKE_BUILD_TYPE Debug)
 
-set (CMAKE_BUILD_TYPE Release)
-add_cxx_compiler_flag(-O4)
+# set (CMAKE_BUILD_TYPE Release)
+# add_cxx_compiler_flag(-O4)
 
 add_cxx_compiler_flag(-std=c++14)
 add_cxx_compiler_flag(-Wall)
@@ -55,12 +55,13 @@ endif()
 add_cxx_compiler_flag(-DFMT_HEADER_ONLY)
 add_cxx_compiler_flag(-DCEREAL_RAPIDJSON_HAS_CXX11_RVALUE_REFS)
 
-set(CMAKE_CXX_COMPILER "clang++")
+# set(CMAKE_CXX_COMPILER "clang++")
 
 ENABLE_TESTING()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(SRC_FILES 17_8 1.1 1.2 1.3 parse_expression 1.4 1.5)
+set(SRC_FILES 17_8 1.1 1.2 1.3 parse_expression 1.4 1.5  1.6 1.7 1.9 3.2 4.2 4.4)
+
 foreach (src_file ${SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})
