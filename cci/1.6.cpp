@@ -4,7 +4,8 @@
 namespace cci {
     // The complexity of this algorithm is O(n), where n is the size of the given string.
     // How can we do better?
-    // Terminate early.
+    // 1. Terminate early.
+    // 2. 
     std::string compress(const std::string &input) {
         std::string results;
 
@@ -23,9 +24,9 @@ namespace cci {
                 results.append(std::to_string(count));
 
                 // Terminate early if the compression algorithm is not helpful.
-                // if (results.size() >= input.size()) {
-                //     return input;
-                // }
+                if (results.size() >= input.size()) {
+                    return input;
+                }
                 
                 count = 1;
                 prev = it;

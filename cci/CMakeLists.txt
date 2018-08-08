@@ -60,7 +60,7 @@ set(CMAKE_CXX_COMPILER "clang++")
 ENABLE_TESTING()
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(SRC_FILES 17_8 1.1 1.2 1.6)
+set(SRC_FILES 17_8 1.1 1.2 1.6 1.7 1.9 3.2)
 foreach (src_file ${SRC_FILES})
   ADD_EXECUTABLE(${src_file} ${src_file}.cpp)
   TARGET_LINK_LIBRARIES(${src_file})
