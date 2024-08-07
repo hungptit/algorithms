@@ -1,6 +1,3 @@
-## Introdution
-
-
 ## Where do I find the solutions?
 
 * All solution for the Jeff Erikson book are in the `algorithm-jeff-erikson` folder.
