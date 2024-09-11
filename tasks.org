@@ -1,0 +1,12 @@
+#+STARTUP: indent
+#+AUTHOR: Hung Dang
+* TODO Data Dog interview
+** Behavior questions
+** Design questions
+** Algorithm questions [33%]
++ [X] The tower of Hanoi
++ [ ] 3Sum
++ [ ] Star matching
++ [ ] Merging intervals
++ [X] longest string without duplication
++ [ ] Subarray with K different integers
