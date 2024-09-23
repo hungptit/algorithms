@@ -19,7 +19,7 @@
 // c. Expand the windows if we have no more than k distinct integers.
 
 namespace algorithm {
-struct Solution {
+struct ForwardSolution {
 public:
   int subarraysWithKDistinct(const std::vector<int>& nums, int k) { return 1; }
 
@@ -27,7 +27,7 @@ public:
 };
 }  // namespace algorithm
 TEST_CASE("Basic tests") {
-  algorithm::Solution sol;
+  algorithm::ForwardSolution sol;
   CHECK(sol.subarraysWithKDistinct({1, 2, 1, 2, 3}, 2) == 7);
   CHECK(sol.subarraysWithKDistinct({1, 2, 1, 3, 4}, 3) == 3);
 }

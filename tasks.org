@@ -17,3 +17,8 @@
 + [-] string segmentation
   + [X] Implement a recursive solution.
   + [ ] How do we cache the results?
++ Binary tree [0%]
+  + [ ] Construct a balanced binary tree.
+  + [ ] Print out a binary tree.
+  + [ ] Insert a value to the binary tree.
+  + [ ]

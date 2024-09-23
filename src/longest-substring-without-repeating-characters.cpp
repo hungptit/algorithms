@@ -38,7 +38,7 @@ bool is_valid(const std::string& s) {
   return true;
 }
 
-struct Solution {
+struct ForwardSolution {
   size_t compute(const std::string& s) {
     if (s.empty())
       return 0;
@@ -75,7 +75,7 @@ TEST_CASE("Tests") {
 }
 
 TEST_CASE("Basic tests") {
-  algorithm::Solution sol;
+  algorithm::ForwardSolution sol;
   CHECK(sol.compute("") == 0);
   CHECK(sol.compute("a") == 1);
   CHECK(sol.compute("abcabcbb") == 3);
