@@ -3,10 +3,22 @@
 * TODO Data Dog interview
 ** Behavior questions
 ** Design questions
-** Algorithm questions [33%]
+** Algorithm questions [30%]
 + [X] The tower of Hanoi
 + [ ] 3Sum
 + [ ] Star matching
 + [ ] Merging intervals
 + [X] longest string without duplication
 + [ ] Subarray with K different integers
++ [ ] Implement the partition algorithm.
++ [ ] Quick select.
++ [X] subsetsum
+  + Think about induction when start solving the problem.
++ [-] string segmentation
+  + [X] Implement a recursive solution.
+  + [ ] How do we cache the results?
++ Binary tree [0%]
+  + [ ] Construct a balanced binary tree.
+  + [ ] Print out a binary tree.
+  + [ ] Insert a value to the binary tree.
+  + [ ]
