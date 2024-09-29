@@ -21,7 +21,7 @@
 namespace algorithm {
 struct ForwardSolution {
 public:
-  int subarraysWithKDistinct(const std::vector<int>& nums, int k) { return 1; }
+  auto subarraysWithKDistinct(const std::vector<int>& nums, int k) -> int { return 1; }
 
   std::unordered_map<int, int> lookup;
 };

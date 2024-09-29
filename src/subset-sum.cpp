@@ -12,7 +12,7 @@ namespace algorithm {
 // O(target * n).
 
 // The O(2^n) solution
-bool subset_sum(const std::vector<int>& x, const size_t pos, const int target) {
+auto subset_sum(const std::vector<int>& x, const size_t pos, const int target) -> bool {
   if (pos >= x.size() || target < 0)
     return false;
 
@@ -24,7 +24,7 @@ bool subset_sum(const std::vector<int>& x, const size_t pos, const int target) {
 }
 
 // The O(target * n) solution that requires O(n) memory.
-bool subset_sum_dp(const std::vector<int>& x, const int N) {
+auto subset_sum_dp(const std::vector<int>& x, const int N) -> bool {
   if (N < 0)
     return false;
 

@@ -27,7 +27,7 @@ namespace algorithm {
 // * Otherwise update the lookup table and move to the next character.
 //
 
-bool is_valid(const std::string& s) {
+auto is_valid(const std::string& s) -> bool {
   std::array<int, 256> lookup_table = {};
   for (const auto ch : s) {
     if (lookup_table[ch]) {
@@ -39,7 +39,7 @@ bool is_valid(const std::string& s) {
 }
 
 struct ForwardSolution {
-  size_t compute(const std::string& s) {
+  auto compute(const std::string& s) -> size_t {
     if (s.empty())
       return 0;
 

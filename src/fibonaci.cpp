@@ -6,7 +6,7 @@
 #include <vector>
 
 namespace algorithm {
-size_t fibonaci(const size_t n) {
+auto fibonaci(const size_t n) -> size_t {
   if (n == 0)
     return 0;
   if (n == 1)
@@ -14,7 +14,7 @@ size_t fibonaci(const size_t n) {
   return fibonaci(n - 1) + fibonaci(n - 2);
 }
 
-size_t fibonaci_dp(const int n) {
+auto fibonaci_dp(const int n) -> size_t {
   if (n == 0)
     return 0;
   if (n == 1)

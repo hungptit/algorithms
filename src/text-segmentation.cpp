@@ -8,13 +8,13 @@
 #include <vector>
 
 namespace algorithm {
-bool is_word(const std::string& word) {
+auto is_word(const std::string& word) -> bool {
   static const std::unordered_set<std::string> dict = {
       "a", "both", "earth", "and", "saturn", "spin"};
   return dict.contains(word);
 }
 
-bool is_splitable(const std::string& input) {
+auto is_splitable(const std::string& input) -> bool {
   if (input.empty())
     return true;
 
@@ -38,7 +38,7 @@ bool is_splitable(const std::string& input) {
   return status[len];
 }
 
-bool is_splitable_backward(const std::string& input) {
+auto is_splitable_backward(const std::string& input) -> bool {
   if (input.empty())
     return true;
 
@@ -58,10 +58,10 @@ bool is_splitable_backward(const std::string& input) {
   return status[0];
 }
 
-bool text_segmentation(
+auto text_segmentation(
     const std::string& input,
     const size_t pos,
-    std::vector<std::string>& results) {
+    std::vector<std::string>& results) -> bool {
   if (pos >= input.length()) {
     return true;
   }
@@ -81,10 +81,10 @@ bool text_segmentation(
 }
 
 using iterator_type = std::string::const_iterator;
-bool text_segmentation_iterator(
+auto text_segmentation_iterator(
     const iterator_type left,
     const iterator_type right,
-    std::vector<std::string>& results) {
+    std::vector<std::string>& results) -> bool {
   if (left == right) {
     return true;
   }
@@ -103,7 +103,7 @@ bool text_segmentation_iterator(
   return false;
 }
 
-std::vector<std::string> text_segmentation(const std::string& input) {
+auto text_segmentation(const std::string& input) -> std::vector<std::string> {
   std::vector<std::string> results;
   return text_segmentation_iterator(input.cbegin(), input.cend(), results)
       ? results

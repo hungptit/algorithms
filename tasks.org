@@ -3,7 +3,7 @@
 * TODO Data Dog interview
 ** Behavior questions
 ** Design questions
-** Algorithm questions [30%]
+** Algorithm questions [33%]
 + [X] The tower of Hanoi
 + [ ] 3Sum
 + [ ] Star matching
@@ -14,6 +14,8 @@
 + [ ] Quick select.
 + [X] subsetsum
   + Think about induction when start solving the problem.
++ [X] Decode string
++ [ ] Wildcat matching.
 + [-] string segmentation
   + [X] Implement a recursive solution.
   + [ ] How do we cache the results?
@@ -21,4 +23,5 @@
   + [ ] Construct a balanced binary tree.
   + [ ] Print out a binary tree.
   + [ ] Insert a value to the binary tree.
-  + [ ]
++ String
+  + [ ] Given a string, find the minimum number of characters to be inserted to make it a palindrome.

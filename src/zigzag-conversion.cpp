@@ -7,16 +7,11 @@
 #include <unordered_set>
 #include <vector>
 
-// https://leetcode.com/problems/3sum/description/
+// https://leetcode.com/problems/zigzag-conversion
 
-// Given:
-// 1. There may be duplicated elements in the array.
-
-// 1. The naive solution is testing all possible combinations in O(n^3).
-//
-// Observations:
-// a. We can bring the complexity down to the O(n^2) by using a lookup table (value -> positions)
-// b. We can
+// data = std::vector<std::string>()
+// row = n % K
+// row == K - 1 ->
 class Solution {
 public:
   auto threeSum(std::vector<int>& nums) -> std::vector<std::vector<int>> {
